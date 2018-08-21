@@ -1,1 +1,1 @@
-# iphone-stopwatch
+# react-iphone-stopwatch
