@@ -25,7 +25,8 @@ class Stopwatch extends Component {
     this.listTimer = new Timer();
     this.requestID = null;
     this.state = Stopwatch.initialState();
-    this.start = this.start.bind(this);
+
+    this.update = this.update.bind(this);
     this.onButtonClick = this.onButtonClick.bind(this);
   }
 
@@ -50,12 +51,16 @@ class Stopwatch extends Component {
   start() {
     this.timer.start();
     this.listTimer.start();
+    this.setState({ eventType: EVENT_TYPE.START });
+    this.update();
+  }
+
+  update() {
     this.setState({
-      eventType: EVENT_TYPE.START,
       time: this.timer.time(),
       listTime: this.listTimer.time()
     });
-    this.requestID = requestAnimationFrame(this.start);
+    this.requestID = requestAnimationFrame(this.update);
   }
 
   stop() {
@@ -75,6 +80,7 @@ class Stopwatch extends Component {
   lap() {
     const time = { id: shortid(), lapTime: this.listTimer.time() };
     this.listTimer.reset();
+    this.listTimer.start();
     this.setState(prevState => ({
       lapTimes: [...prevState.lapTimes, time]
     }));
