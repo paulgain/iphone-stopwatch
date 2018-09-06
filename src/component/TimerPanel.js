@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import TimeFormatter from '../time/TimeFormatter';
-import MILLISECONDS from '../time/MILLISECONDS';
+import MILLISECONDS from '../time/Time';
 import '../assets/styles/TimerPanel.scss';
 
 const TimerPanel = ({ time }) => (

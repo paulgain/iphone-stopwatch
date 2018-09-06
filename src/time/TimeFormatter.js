@@ -1,4 +1,4 @@
-import MILLISECONDS from './MILLISECONDS';
+import MILLISECONDS from './Time';
 
 class TimeFormatter {
   static pad(num, size) {

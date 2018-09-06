@@ -5,15 +5,11 @@ import './Application.scss';
 
 const Application = () => (
   <React.Fragment>
-    <div styleName="header">
-      <p>Header</p>
-    </div>
+    <div styleName="header" />
     <div styleName="content">
       <Stopwatch />
     </div>
-    <div styleName="footer">
-      <p>Footer</p>
-    </div>
+    <div styleName="footer" />
   </React.Fragment>
 );
 
