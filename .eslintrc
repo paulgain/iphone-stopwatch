@@ -1,0 +1,8 @@
+{
+  "extends": "airbnb",
+  "rules": {
+    "no-undef": "off",
+    "react/jsx-filename-extension": "off",
+    "comma-dangle": "off"
+  }
+}

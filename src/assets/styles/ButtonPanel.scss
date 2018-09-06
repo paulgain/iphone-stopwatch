@@ -1,0 +1,37 @@
+@import 'core/colours';
+
+@mixin ring($color, $bg-color) {
+  color: $color;
+  background-color: $bg-color;
+  box-shadow: 0 0 0 2px $bg-color;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    width: 63px;
+    height: 63px;
+    border-radius: 50%;
+    margin: 10px;
+    outline: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    border: 1px solid $col-app-bg;
+    font-family: inherit;
+    &.start {
+      @include ring($col-btn-fg-start, $col-btn-bg-start);
+    }
+    &.stop {
+      @include ring($col-btn-fg-stop, $col-btn-bg-stop);
+    }
+    &.reset {
+      @include ring($col-btn-fg-lap, $col-btn-bg-lap);
+    }
+    &:disabled {
+      @include ring($col-btn-fg-lap-disabled, $col-btn-bg-lap-disabled);
+    }
+  }
+}

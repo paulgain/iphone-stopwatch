@@ -1,0 +1,39 @@
+@import 'core/colours';
+
+.footer {
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: $col-app-footer-bg;
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    width: 24px;
+    height: 24px;
+    &[alt='Alarm'] {
+      padding-top: 5px;
+      padding-bottom: 2px;
+      width: 21px;
+      height: 21px;
+    }
+  }
+
+  span {
+    color: #807f80;
+    font-size: 8px;
+    font-weight: bolder;
+    font-family: Helvetica, serif;
+    padding-top: 2px;
+    &.selected {
+      color: #ff9400;;
+    }
+  }
+}

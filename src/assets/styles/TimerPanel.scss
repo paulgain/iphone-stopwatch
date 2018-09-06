@@ -1,0 +1,16 @@
+@import 'core/mixins';
+@import 'core/variables';
+
+.container {
+  height: $app-time-height;
+  @include flex-center;
+  span {
+    color: white;
+    font-size: 70px;
+    font-weight: 100;
+    padding-top: 11px;
+    &.hours {
+      font-size: 54px;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@import 'font';
+@import 'core/variables';
+@import 'core/colours';
+
+.stopwatch {
+    width: $app-width;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: $col-app-bg;
+}
+
+.name {
+  color: white;
+}

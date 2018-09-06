@@ -1,0 +1,28 @@
+dl {
+  display: flex;
+  padding: 9px;
+  margin: 0 3px;
+  font-family: Helvetica;
+  justify-content: space-between;
+  dt, dd {
+    color: white;
+    font-size: 13px;
+    font-weight: 100;
+    &.slowest {
+      color: red;
+    }
+    &.fastest {
+      color: #39c84e;
+    }
+  }
+}
+
+dl:first-child {
+  justify-content: unset;
+  dt {
+    width: 50%;
+  }
+  dd {
+    margin-left: 88px;
+  }
+}

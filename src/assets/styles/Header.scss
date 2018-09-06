@@ -1,0 +1,70 @@
+@import 'core/colours';
+@import 'core/variables';
+@import 'core/mixins';
+
+$image-height: 9px;
+$font-size: 9px;
+$margin: 3px;
+$margin-top: 2px;
+
+.header {
+  height: $app-header-height;
+  background-color: $col-app-header-bg;
+  position: relative;
+}
+
+.carrier-and-wifi {
+  position: absolute;
+  left: 0;
+  top: $margin-top;
+  @include flex-align-center;
+  img {
+    height: $image-height;
+    margin-left: $margin;
+  }
+  span {
+    font-size: $font-size;
+    color: $col-off-white;
+    font-family: Helvetica, serif;
+    margin-left: $margin;
+  }
+}
+
+.time {
+  @include flex-justify-center;
+  span {
+    color: $col-off-white;
+    font-size: 10px;
+    font-weight: 400;
+    font-family: Helvetica, serif;
+    padding-top: 1px;
+  }
+}
+
+.bluetooth-and-battery {
+  position: absolute;
+  right: 0;
+  top: $margin-top;
+  @include flex-align-center;
+  span {
+    font-size: $font-size;
+    color: $col-off-white;
+    font-weight: 700;
+    font-family: 'Helvetica Neue', Helvetica, serif;
+    margin-right: $margin;
+  }
+  img {
+    height: $image-height;
+    margin-right: $margin;
+  }
+}
+
+.heading {
+  @include flex-justify-center;
+  span {
+    color: white;
+    font-size: 14px;
+    padding-top: 11px;
+    font-family: Helvetica, serif;
+  }
+}
