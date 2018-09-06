@@ -10,6 +10,8 @@ A react implementation of the iPhone 7 stopwatch.
 ## Distribution
     yarn dist
     
+![iPhone 7 Stopwatch](/src/assets/img/iphone-stopwatch.png?raw=true)   
+    
 ## Dependencies
 
 - [classnames](https://ghub.io/classnames): A simple utility for conditionally joining classNames together
