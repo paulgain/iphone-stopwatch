@@ -9,7 +9,10 @@ A react implementation of the iPhone 7 stopwatch.
 
 ## Distribution
     yarn dist
-    
+
+## Open
+    http://localhost:8080/
+          
 <img src="/src/assets/img/iphone-stopwatch.png" alt="a screenshot of an iPhone 7 stopwatch" width="300"/> 
     
 ## Dependencies
