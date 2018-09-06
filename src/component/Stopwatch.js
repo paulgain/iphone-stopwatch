@@ -26,8 +26,16 @@ class Stopwatch extends Component {
     this.requestID = null;
     this.state = Stopwatch.initialState();
 
-    this.update = this.update.bind(this);
+    this.tick = this.tick.bind(this);
     this.onButtonClick = this.onButtonClick.bind(this);
+  }
+
+  componentDidMount() {
+    this.tick();
+  }
+
+  componentWillUnmount() {
+    cancelAnimationFrame(this.requestID);
   }
 
   onButtonClick(event) {
@@ -48,37 +56,40 @@ class Stopwatch extends Component {
     }
   }
 
+  tick() {
+    const { eventType } = this.state;
+    if (eventType === EVENT_TYPE.START) {
+      this.setState({
+        time: this.timer.time(),
+        listTime: this.listTimer.time()
+      });
+    }
+    this.requestID = requestAnimationFrame(this.tick);
+  }
+
   start() {
     this.timer.start();
     this.listTimer.start();
     this.setState({ eventType: EVENT_TYPE.START });
-    this.update();
-  }
-
-  update() {
-    this.setState({
-      time: this.timer.time(),
-      listTime: this.listTimer.time()
-    });
-    this.requestID = requestAnimationFrame(this.update);
   }
 
   stop() {
     this.timer.stop();
     this.listTimer.stop();
-    cancelAnimationFrame(this.requestID);
     this.setState({ eventType: EVENT_TYPE.STOP });
   }
 
   reset() {
     this.timer.reset();
     this.listTimer.reset();
-    cancelAnimationFrame(this.requestID);
     this.setState(Stopwatch.initialState());
   }
 
   lap() {
-    const time = { id: shortid(), lapTime: this.listTimer.time() };
+    const time = {
+      id: shortid(),
+      lapTime: this.listTimer.time()
+    };
     this.listTimer.reset();
     this.listTimer.start();
     this.setState(prevState => ({

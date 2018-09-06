@@ -9,8 +9,8 @@ import '../assets/styles/LapList.scss';
 const createListOfLapTimes = (lapTimes) => {
   const reversedLapTimes = [...lapTimes].reverse();
 
-  let slowest = { id: '' };
-  let fastest = { id: '' };
+  let slowest = { id: null };
+  let fastest = { ...slowest };
 
   if (reversedLapTimes.length >= 2) {
     slowest = slowestLapTime(reversedLapTimes);
