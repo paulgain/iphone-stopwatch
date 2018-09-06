@@ -19,10 +19,14 @@ class LapItem extends PureComponent {
   }
 }
 
+LapItem.defaultProps = {
+  className: ''
+};
+
 LapItem.propTypes = {
   lapNumber: PropTypes.number.isRequired,
   lapTime: PropTypes.number.isRequired,
-  className: PropTypes.string.isRequired
+  className: PropTypes.string
 };
 
 export default LapItem;

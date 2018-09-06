@@ -10,18 +10,21 @@ import EVENT_TYPE from '../event/EventTypes';
 import '../assets/styles/Stopwatch.scss';
 
 class Stopwatch extends Component {
-  constructor(props) {
-    super(props);
-    this.timer = new Timer();
-    this.listTimer = new Timer();
-    this.requestID = null;
-    this.state = {
+  static initialState() {
+    return {
       eventType: EVENT_TYPE.RESET,
       time: 0,
       listTime: 0,
       lapTimes: []
     };
+  }
 
+  constructor(props) {
+    super(props);
+    this.timer = new Timer();
+    this.listTimer = new Timer();
+    this.requestID = null;
+    this.state = Stopwatch.initialState();
     this.start = this.start.bind(this);
     this.onButtonClick = this.onButtonClick.bind(this);
   }
@@ -66,12 +69,7 @@ class Stopwatch extends Component {
     this.timer.reset();
     this.listTimer.reset();
     cancelAnimationFrame(this.requestID);
-    this.setState({
-      eventType: EVENT_TYPE.RESET,
-      time: 0,
-      listTime: 0,
-      lapTimes: []
-    });
+    this.setState(Stopwatch.initialState());
   }
 
   lap() {

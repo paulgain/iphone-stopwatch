@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import LapItem from './LapItem';
 import EVENT_TYPE from '../event/EventTypes';
-import { slowestLapTime, fastestLapTime } from '../utils/NumberUtils';
+import { slowestLapTime, fastestLapTime } from '../helper/LapTimes';
 import '../assets/styles/LapList.scss';
 
 const createListOfLapTimes = (lapTimes) => {
@@ -45,7 +45,6 @@ const LapList = ({ eventType, listTime, lapTimes }) => {
       <LapItem
         lapTime={listTime}
         lapNumber={lapTimes.length + 1}
-        className=""
       />
       { createListOfLapTimes(lapTimes) }
     </div>
