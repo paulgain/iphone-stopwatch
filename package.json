@@ -9,6 +9,7 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.dev.js",
     "dist": "webpack --config webpack.config.dist.js",
+    "test": "exit 0",
     "lint": "eslint ."
   },
   "devDependencies": {
