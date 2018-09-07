@@ -1,4 +1,4 @@
-import MILLISECONDS from './Time';
+import Time from './Time';
 
 class TimeFormatter {
   static pad(num, size) {
@@ -7,9 +7,9 @@ class TimeFormatter {
   }
 
   static format(milliseconds) {
-    let hours = Math.floor((milliseconds / MILLISECONDS.ONE_HOUR) % 24);
-    let minutes = Math.floor((milliseconds / MILLISECONDS.ONE_MINUTE) % 60);
-    let seconds = Math.floor((milliseconds / MILLISECONDS.ONE_SECOND) % 60);
+    let hours = Math.floor((milliseconds / Time.ONE_HOUR) % 24);
+    let minutes = Math.floor((milliseconds / Time.ONE_MINUTE) % 60);
+    let seconds = Math.floor((milliseconds / Time.ONE_SECOND) % 60);
     let ms = Math.floor((milliseconds % 1000) / 10);
 
     hours = TimeFormatter.pad(hours, 2);

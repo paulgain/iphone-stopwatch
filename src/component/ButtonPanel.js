@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import EVENT_TYPE from '../event/EventTypes';
+import EVENT_TYPE from '../event/EventType';
 import '../assets/styles/ButtonPanel.scss';
 
 const ButtonPanel = ({ eventType, onButtonClick }) => {
@@ -31,7 +31,7 @@ const ButtonPanel = ({ eventType, onButtonClick }) => {
       rightBtnStyles.start = true;
       break;
     default:
-      throw new Error('Unknown event type');
+      throw new Error(`Unknown event type: ${eventType}`);
   }
 
   return (

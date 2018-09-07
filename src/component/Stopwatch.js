@@ -6,7 +6,7 @@ import LapList from './LapList';
 import Timer from '../time/Timer';
 import Header from './Header';
 import Footer from './Footer';
-import EVENT_TYPE from '../event/EventTypes';
+import EVENT_TYPE from '../event/EventType';
 import '../assets/styles/Stopwatch.scss';
 
 class Stopwatch extends Component {
@@ -86,14 +86,14 @@ class Stopwatch extends Component {
   }
 
   lap() {
-    const time = {
+    const newLapTime = {
       id: shortid(),
       lapTime: this.listTimer.time()
     };
     this.listTimer.reset();
     this.listTimer.start();
     this.setState(prevState => ({
-      lapTimes: [...prevState.lapTimes, time]
+      lapTimes: [...prevState.lapTimes, newLapTime]
     }));
   }
 
