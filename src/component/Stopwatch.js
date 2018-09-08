@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
+import raf from 'raf';
 import TimerPanel from './TimerPanel';
 import ButtonPanel from './ButtonPanel';
 import LapList from './LapList';
@@ -23,7 +24,7 @@ class Stopwatch extends Component {
     super(props);
     this.timer = new Timer();
     this.listTimer = new Timer();
-    this.requestID = null;
+    this.rafHandle = null;
     this.state = Stopwatch.initialState();
 
     this.tick = this.tick.bind(this);
@@ -31,11 +32,11 @@ class Stopwatch extends Component {
   }
 
   componentDidMount() {
-    this.tick();
+    raf(this.tick);
   }
 
   componentWillUnmount() {
-    cancelAnimationFrame(this.requestID);
+    raf.cancel(this.rafHandle);
   }
 
   onButtonClick(event) {
@@ -64,7 +65,7 @@ class Stopwatch extends Component {
         listTime: this.listTimer.time()
       });
     }
-    this.requestID = requestAnimationFrame(this.tick);
+    this.rafHandle = raf(this.tick);
   }
 
   start() {

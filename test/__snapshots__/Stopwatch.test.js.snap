@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Stopwatch it should match the local snapshot 1`] = `
+exports[`Stopwatch Snapshot it should match the local snapshot 1`] = `
 <div
   styleName="stopwatch"
 >
