@@ -19,7 +19,6 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             cacheDirectory: true,
-            babelrc: false,
             plugins: [
               'transform-object-rest-spread',
               'transform-react-jsx',
