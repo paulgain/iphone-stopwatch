@@ -4,7 +4,7 @@ import EVENT_TYPE from '../event/EventType';
 import Button from './Button';
 import '../assets/styles/ButtonPanel.scss';
 
-const createButton = (text, disabled, classNames, onButtonClick) => (
+const createButton = (text, classNames, onButtonClick, disabled = false) => (
   <Button
     text={text}
     disabled={disabled}
@@ -19,16 +19,16 @@ const ButtonPanel = ({ eventType, onButtonClick }) => {
 
   switch (eventType) {
     case EVENT_TYPE.RESET:
-      leftButton = createButton('Lap', true, '', onButtonClick);
-      rightButton = createButton('Start', false, 'start', onButtonClick);
+      leftButton = createButton('Lap', '', onButtonClick, true);
+      rightButton = createButton('Start', 'start', onButtonClick);
       break;
     case EVENT_TYPE.START:
-      leftButton = createButton('Lap', false, 'reset', onButtonClick);
-      rightButton = createButton('Stop', false, 'stop', onButtonClick);
+      leftButton = createButton('Lap', 'reset', onButtonClick);
+      rightButton = createButton('Stop', 'stop', onButtonClick);
       break;
     case EVENT_TYPE.STOP:
-      leftButton = createButton('Reset', false, 'reset', onButtonClick);
-      rightButton = createButton('Start', false, 'start', onButtonClick);
+      leftButton = createButton('Reset', 'reset', onButtonClick);
+      rightButton = createButton('Start', 'start', onButtonClick);
       break;
     default: throw new Error(`Unknown event type: ${eventType}`);
   }

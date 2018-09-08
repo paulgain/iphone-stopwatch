@@ -7,7 +7,7 @@ import '../assets/styles/TimerPanel.scss';
 
 const TimerPanel = ({ time }) => (
   <div styleName="container">
-    <span styleName={classNames({ hours: time > Time.ONE_HOUR })}>
+    <span styleName={classNames({ hours: time >= Time.ONE_HOUR })}>
       {TimeFormatter.format(time)}
     </span>
   </div>
