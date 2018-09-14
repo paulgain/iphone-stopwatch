@@ -7,6 +7,7 @@ import TimerPanel from '../src/component/TimerPanel';
 import LapList from '../src/component/LapList';
 import Footer from '../src/component/Footer';
 import Timer from '../src/time/Timer';
+import EVENT_TYPE from '../src/event/EventType';
 
 describe('Stopwatch', () => {
   const initialState = {
@@ -71,7 +72,86 @@ describe('Stopwatch', () => {
     });
   });
 
-  describe('stopwatch sections', () => {
+  describe('stopwatch actions start(), stop(), reset() and lap()', () => {
+    let stopwatch;
+
+    beforeEach(() => {
+      stopwatch = new Stopwatch();
+    });
+
+    it('it should start both timers and update the state', () => {
+      stopwatch.timer = { start: jest.fn() };
+      stopwatch.listTimer = { start: jest.fn() };
+      stopwatch.setState = jest.fn();
+      stopwatch.start();
+
+      expect(stopwatch.timer.start).toHaveBeenCalled();
+      expect(stopwatch.listTimer.start).toHaveBeenCalled();
+      expect(stopwatch.setState).toHaveBeenCalledWith({ eventType: EVENT_TYPE.START });
+    });
+
+    it('it should stop both timers and update the state', () => {
+      stopwatch.timer = { stop: jest.fn() };
+      stopwatch.listTimer = { stop: jest.fn() };
+      stopwatch.setState = jest.fn();
+      stopwatch.stop();
+
+      expect(stopwatch.timer.stop).toHaveBeenCalled();
+      expect(stopwatch.listTimer.stop).toHaveBeenCalled();
+      expect(stopwatch.setState).toHaveBeenCalledWith({ eventType: EVENT_TYPE.STOP });
+    });
+
+    it('it should reset both timers and update the state', () => {
+      stopwatch.timer = { reset: jest.fn() };
+      stopwatch.listTimer = { reset: jest.fn() };
+      stopwatch.setState = jest.fn();
+      stopwatch.reset();
+
+      expect(stopwatch.timer.reset).toHaveBeenCalled();
+      expect(stopwatch.listTimer.reset).toHaveBeenCalled();
+      expect(stopwatch.setState).toHaveBeenCalledWith(Stopwatch.initialState());
+    });
+
+    it('it should save the current lap time', () => {
+      stopwatch.createLapTime = jest.fn();
+      stopwatch.listTimer = { reset: jest.fn(), start: jest.fn() };
+      stopwatch.setState = jest.fn();
+      stopwatch.lap();
+
+      expect(stopwatch.createLapTime).toHaveBeenCalled();
+      expect(stopwatch.listTimer.reset).toHaveBeenCalled();
+      expect(stopwatch.listTimer.start).toHaveBeenCalled();
+      expect(stopwatch.setState).toHaveBeenCalledWith(stopwatch.addLapTime);
+    });
+  });
+
+  describe('helper functions', () => {
+    let stopwatch;
+
+    beforeEach(() => {
+      stopwatch = new Stopwatch();
+      stopwatch.listTimer = { time: jest.fn().mockReturnValue(100) };
+      stopwatch.createLapTime();
+    });
+
+    it('it should create a lap time', () => {
+      expect(stopwatch.currentLapTime.id).toBeDefined();
+      expect(stopwatch.currentLapTime.lapTime).toEqual(100);
+    });
+
+    it('it should immutably add a lap time to the previous lap times', () => {
+      const prevState = { lapTimes: [{ id: 'UTWe8YB9Cs', lapTime: 10 }] };
+      const newState = stopwatch.addLapTime(prevState);
+
+      expect(newState.lapTimes.length).toEqual(2);
+
+      // Test for immutability
+      expect(newState).not.toBe(prevState);
+      expect(newState.lapTimes).not.toBe(prevState.lapTimes);
+    });
+  });
+
+  describe('stopwatch UI sections', () => {
     const { root } = TestRenderer.create(<Stopwatch />);
 
     test('it should contain a Header', () => {

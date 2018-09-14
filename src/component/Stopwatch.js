@@ -87,15 +87,24 @@ class Stopwatch extends Component {
   }
 
   lap() {
-    const newLapTime = {
+    this.createLapTime();
+    this.listTimer.reset();
+    this.listTimer.start();
+    this.setState(this.addLapTime);
+  }
+
+  createLapTime() {
+    this.currentLapTime = {
       id: shortid(),
       lapTime: this.listTimer.time()
     };
-    this.listTimer.reset();
-    this.listTimer.start();
-    this.setState(prevState => ({
-      lapTimes: [...prevState.lapTimes, newLapTime]
-    }));
+  }
+
+  addLapTime(prevState) {
+    return {
+      ...prevState,
+      lapTimes: [...prevState.lapTimes, this.currentLapTime]
+    };
   }
 
   render() {
