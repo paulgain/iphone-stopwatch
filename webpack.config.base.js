@@ -20,7 +20,6 @@ module.exports = {
           options: {
             cacheDirectory: true,
             plugins: [
-              'transform-object-rest-spread',
               'transform-react-jsx',
               [
                 'react-css-modules', {
