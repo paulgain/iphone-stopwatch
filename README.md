@@ -3,6 +3,8 @@ A react implementation (browser) of the iPhone 7 stopwatch.
 
 [![Build Status](https://travis-ci.com/paulgain/react-iphone-stopwatch.svg?branch=master)](https://travis-ci.com/paulgain/react-iphone-stopwatch)
 
+<img src="/src/assets/img/iphone-stopwatch.png" alt="a screenshot of an iPhone 7 stopwatch" width="300"/> 
+
 Implementation includes:
  * React
  * ES2015
@@ -22,9 +24,7 @@ Implementation includes:
 
 ## Open
     http://localhost:8080/
-          
-<img src="/src/assets/img/iphone-stopwatch.png" alt="a screenshot of an iPhone 7 stopwatch" width="300"/> 
-    
+              
 ## License
 
-MIT
+[MIT](./LICENCE)
