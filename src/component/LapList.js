@@ -40,7 +40,8 @@ const LapList = ({ eventType, listTime, lapTimes }) => {
       classNames('container', {
         backgroundLines: lapTimes.length <= 3,
         borderLines: lapTimes.length > 3
-      })}
+      })
+    }
     >
       <LapItem
         lapTime={listTime}
