@@ -1,4 +1,4 @@
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const base = require('./webpack.config.base.js');
 const localIdentName = require('./scope.name');
 

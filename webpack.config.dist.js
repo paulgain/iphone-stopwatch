@@ -1,8 +1,8 @@
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const base = require('./webpack.config.base.js');
 const localIdentName = require('./scope.name');
 
@@ -53,6 +53,6 @@ module.exports = merge(base, {
     new MiniCssExtractPlugin({
       filename: 'main.css'
     }),
-    new CleanWebpackPlugin(['dist'])
+    new CleanWebpackPlugin()
   ],
 });
