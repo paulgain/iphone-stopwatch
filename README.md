@@ -1,5 +1,5 @@
 # React iPhone Stopwatch
-A react implementation (browser) of the iPhone 7 stopwatch.
+A react implementation of the iPhone 7 stopwatch (Web)
 
 [![Build Status](https://travis-ci.com/paulgain/react-iphone-stopwatch.svg?branch=master)](https://travis-ci.com/paulgain/react-iphone-stopwatch)
 
@@ -7,14 +7,15 @@ A react implementation (browser) of the iPhone 7 stopwatch.
 
 Implementation includes:
  * React
- * ES2015
+ * ECMAScript 2015 (AKA ECMAScript 6)
  * CSS Modules 
  * SASS
  * Webpack
+ * Jest
  * ESLint (Airbnb)
 
 ## Installation
-    yarn install
+    yarn
   
 ## Start
     yarn start    
