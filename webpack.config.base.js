@@ -1,6 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
-const generateScopedName = require('./scope.name');
 
 module.exports = {
   devtool: 'inline-source-map',
@@ -13,25 +12,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
             cacheDirectory: true,
-            plugins: [
-              'transform-react-jsx',
-              [
-                'react-css-modules', {
-                  generateScopedName,
-                  filetypes: {
-                    '.scss': {
-                      syntax: 'postcss-scss'
-                    }
-                  }
-                }
-              ]
-            ]
           }
         }
       },
@@ -48,6 +34,9 @@ module.exports = {
         ]
       }
     ]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
   },
   plugins: [
     new HtmlWebpackPlugin({
