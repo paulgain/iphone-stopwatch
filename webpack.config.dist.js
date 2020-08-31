@@ -2,6 +2,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 const { merge } = require('webpack-merge');
 const base = require('./webpack.config.base.js');
 const localIdentName = require('./scope.name');
@@ -18,12 +19,19 @@ module.exports = merge(base, {
           {
             loader: 'css-loader',
             options: {
-              importLoader: 2,
-              modules: true,
-              localIdentName
+              importLoaders: 2,
+              modules: {
+                compileType: 'module',
+                localIdentName
+              }
             }
           },
-          'postcss-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [autoprefixer]
+            },
+          },
           'sass-loader'
         ],
       },
