@@ -3,11 +3,16 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import TimeFormatter from '../time/TimeFormatter';
 import Time from '../time/Time';
-import '../assets/styles/TimerPanel.scss';
+import styles from '../assets/styles/TimerPanel.scss';
 
 const TimerPanel = ({ time }) => (
-  <div styleName="container">
-    <span styleName={classNames({ hours: time >= Time.ONE_HOUR })}>
+  <div className={styles.container}>
+    <span className={
+      classNames({
+        hours: time >= Time.ONE_HOUR
+      })
+    }
+    >
       {TimeFormatter.format(time)}
     </span>
   </div>

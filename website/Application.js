@@ -1,15 +1,14 @@
 import React from 'react';
-
 import Stopwatch from '../src/component/Stopwatch';
-import './Application.scss';
+import styles from './Application.scss';
 
 const Application = () => (
   <>
-    <div styleName="header" />
-    <div styleName="content">
+    <div className={styles.header} />
+    <div className={styles.content}>
       <Stopwatch />
     </div>
-    <div styleName="footer" />
+    <div className={styles.footer} />
   </>
 );
 

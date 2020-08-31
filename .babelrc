@@ -1,7 +1,7 @@
 {
   "presets": [
-    "@babel/preset-env",
-    "@babel/preset-react"
+    "@babel/preset-env",   // Use the latest JS
+    "@babel/preset-react"  // Transform JSX
   ],
   "plugins": [
     "@babel/plugin-proposal-object-rest-spread"

@@ -8,10 +8,10 @@ class LapItem extends PureComponent {
     const { lapNumber, lapTime, className } = this.props;
     return (
       <dl>
-        <dt styleName={className}>
+        <dt className={className}>
           {`Lap ${lapNumber}`}
         </dt>
-        <dd styleName={className}>
+        <dd className={className}>
           {TimeFormatter.format(lapTime)}
         </dd>
       </dl>

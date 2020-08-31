@@ -2,13 +2,13 @@
 
 exports[`Stopwatch Snapshot it should match the local snapshot 1`] = `
 <div
-  styleName="stopwatch"
+  className="stopwatch"
 >
   <div
-    styleName="header"
+    className="header"
   >
     <div
-      styleName="carrier-and-wifi"
+      className="carrierAndWiFi"
     >
       <img
         alt="phone signal"
@@ -23,14 +23,14 @@ exports[`Stopwatch Snapshot it should match the local snapshot 1`] = `
       />
     </div>
     <div
-      styleName="time"
+      className="time"
     >
       <span>
         00.15
       </span>
     </div>
     <div
-      styleName="bluetooth-and-battery"
+      className="bluetoothAndBattery"
     >
       <img
         alt="bluetooth connection"
@@ -45,7 +45,7 @@ exports[`Stopwatch Snapshot it should match the local snapshot 1`] = `
       />
     </div>
     <div
-      styleName="heading"
+      className="heading"
     >
       <span>
         Stopwatch
@@ -53,103 +53,103 @@ exports[`Stopwatch Snapshot it should match the local snapshot 1`] = `
     </div>
   </div>
   <div
-    styleName="container"
+    className="container"
   >
     <span
-      styleName=""
+      className=""
     >
       00:00:00
     </span>
   </div>
   <div
-    styleName="container"
+    className="container"
   >
     <button
+      className=""
       disabled={true}
       name="Lap"
       onClick={[Function]}
-      styleName=""
       type="button"
     >
       Lap
     </button>
     <button
+      className="start"
       disabled={false}
       name="Start"
       onClick={[Function]}
-      styleName="start"
       type="button"
     >
       Start
     </button>
   </div>
   <div
-    styleName="container backgroundLines"
+    className="container backgroundLines"
   />
   <div
-    styleName="footer"
+    className="footer"
   >
     <div
-      styleName="icon-container"
+      className="iconContainer"
     >
       <img
         alt="World Clock"
         src="test-file-stub"
       />
       <span
-        styleName=""
+        className=""
       >
         World Clock
       </span>
     </div>
     <div
-      styleName="icon-container"
+      className="iconContainer"
     >
       <img
         alt="Alarm"
         src="test-file-stub"
       />
       <span
-        styleName=""
+        className=""
       >
         Alarm
       </span>
     </div>
     <div
-      styleName="icon-container"
+      className="iconContainer"
     >
       <img
         alt="Bedtime"
         src="test-file-stub"
       />
       <span
-        styleName=""
+        className=""
       >
         Bedtime
       </span>
     </div>
     <div
-      styleName="icon-container"
+      className="iconContainer"
     >
       <img
         alt="Stopwatch"
         src="test-file-stub"
       />
       <span
-        styleName="selected"
+        className="selected"
       >
         Stopwatch
       </span>
     </div>
     <div
-      styleName="icon-container"
+      className="iconContainer"
     >
       <img
         alt="Timer"
         src="test-file-stub"
       />
       <span
-        styleName=""
+        className=""
       >
         Timer
       </span>

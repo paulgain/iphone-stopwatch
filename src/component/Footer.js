@@ -5,17 +5,17 @@ import globe from '../assets/img/globe.svg';
 import alarm from '../assets/img/alarm.svg';
 import timer from '../assets/img/timer.svg';
 import stopWatch from '../assets/img/stop-watch.svg';
-import '../assets/styles/Footer.scss';
+import styles from '../assets/styles/Footer.scss';
 
 const Icon = ({ svg, text, selected }) => (
-  <div styleName="icon-container">
+  <div className={styles.iconContainer}>
     <img src={svg} alt={text} />
-    <span styleName={selected ? 'selected' : ''}>{text}</span>
+    <span className={selected ? 'selected' : ''}>{text}</span>
   </div>
 );
 
 const Footer = () => (
-  <div styleName="footer">
+  <div className={styles.footer}>
     <Icon svg={globe} text="World Clock" />
     <Icon svg={alarm} text="Alarm" />
     <Icon svg={bed} text="Bedtime" />

@@ -4,7 +4,8 @@ import classNames from 'classnames';
 import LapItem from './LapItem';
 import EVENT_TYPE from '../event/EventType';
 import { slowestLapTime, fastestLapTime } from '../helper/LapTimes';
-import '../assets/styles/LapList.scss';
+import lapListStyles from '../assets/styles/LapList.scss';
+import lapItemStyles from '../assets/styles/LapItem.scss';
 
 const createListOfLapTimes = (lapTimes) => {
   const reversedLapTimes = [...lapTimes].reverse();
@@ -23,8 +24,8 @@ const createListOfLapTimes = (lapTimes) => {
       lapTime={item.lapTime}
       lapNumber={lapTimes.length - index}
       className={classNames({
-        slowest: item.id === slowest.id,
-        fastest: item.id === fastest.id
+        [lapItemStyles.slowest]: item.id === slowest.id,
+        [lapItemStyles.fastest]: item.id === fastest.id
       })}
     />
   ));
@@ -32,12 +33,20 @@ const createListOfLapTimes = (lapTimes) => {
 
 const LapList = ({ eventType, listTime, lapTimes }) => {
   if (eventType === EVENT_TYPE.RESET) {
-    return <div styleName="container backgroundLines" />;
+    return (
+      <div className={
+        classNames(
+          lapListStyles.container,
+          lapListStyles.backgroundLines
+        )
+      }
+      />
+    );
   }
 
   return (
-    <div styleName={
-      classNames('container', {
+    <div className={
+      classNames(lapListStyles.container, {
         backgroundLines: lapTimes.length <= 3,
         borderLines: lapTimes.length > 3
       })

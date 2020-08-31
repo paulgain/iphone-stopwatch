@@ -1,3 +1,4 @@
+const autoprefixer = require('autoprefixer');
 const { merge } = require('webpack-merge');
 const base = require('./webpack.config.base.js');
 const localIdentName = require('./scope.name');
@@ -14,15 +15,22 @@ module.exports = merge(base, {
           {
             loader: 'css-loader',
             options: {
-              importLoader: 2,
-              modules: true,
-              localIdentName
+              importLoaders: 2,
+              modules: {
+                compileType: 'module',
+                localIdentName
+              }
             }
           },
-          'postcss-loader',
-          'sass-loader'
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [autoprefixer]
+            },
+          },
+          'sass-loader',
         ],
-      }
+      },
     ]
   }
 });

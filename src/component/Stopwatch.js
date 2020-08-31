@@ -8,7 +8,7 @@ import Timer from '../time/Timer';
 import Header from './Header';
 import Footer from './Footer';
 import EVENT_TYPE from '../event/EventType';
-import '../assets/styles/Stopwatch.scss';
+import styles from '../assets/styles/Stopwatch.scss';
 
 class Stopwatch extends Component {
   static initialState() {
@@ -116,7 +116,7 @@ class Stopwatch extends Component {
     } = this.state;
 
     return (
-      <div styleName="stopwatch">
+      <div className={styles.stopwatch}>
         <Header />
         <TimerPanel time={time} />
         <ButtonPanel eventType={eventType} onButtonClick={this.onButtonClick} />

@@ -3,24 +3,24 @@ import signal from '../assets/img/signal.svg';
 import wifi from '../assets/img/wifi.svg';
 import bluetooth from '../assets/img/bluetooth.svg';
 import battery from '../assets/img/battery.svg';
-import '../assets/styles/Header.scss';
+import styles from '../assets/styles/Header.scss';
 
 const Header = () => (
-  <div styleName="header">
-    <div styleName="carrier-and-wifi">
+  <div className={styles.header}>
+    <div className={styles.carrierAndWiFi}>
       <img src={signal} alt="phone signal" />
       <span>3</span>
       <img src={wifi} alt="wifi connection" />
     </div>
-    <div styleName="time">
+    <div className={styles.time}>
       <span>00.15</span>
     </div>
-    <div styleName="bluetooth-and-battery">
+    <div className={styles.bluetoothAndBattery}>
       <img src={bluetooth} alt="bluetooth connection" />
       <span>25%</span>
       <img src={battery} alt="battery life" />
     </div>
-    <div styleName="heading">
+    <div className={styles.heading}>
       <span>Stopwatch</span>
     </div>
   </div>

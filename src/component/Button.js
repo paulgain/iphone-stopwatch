@@ -5,14 +5,14 @@ import '../assets/styles/Button.scss';
 const Button = ({
   text,
   disabled,
-  classNames,
+  className,
   onButtonClick
 }) => (
   <button
     type="button"
     name={text}
     disabled={disabled}
-    styleName={classNames}
+    className={className}
     onClick={onButtonClick}
   >
     {text}
@@ -21,7 +21,7 @@ const Button = ({
 
 Button.propTypes = {
   text: PropTypes.string.isRequired,
-  classNames: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
   disabled: PropTypes.bool.isRequired,
   onButtonClick: PropTypes.func.isRequired
 };
